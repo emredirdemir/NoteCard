@@ -10,5 +10,9 @@ namespace Note.Business.Abstract
     public interface INoteService
     {
         Task<List<NoteCard>> GetAll();
+        Task<List<NoteCard>> GetByCategoryId(int Id);
+        void Delete(int Id);
+        void Update(NoteCard noteCard);
+        void Create(NoteCard noteCard);
     }
 }

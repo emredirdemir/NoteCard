@@ -11,14 +11,35 @@ namespace Note.Business.Concrete
 {
     public class NoteManager : INoteService
     {
-        private INoteDal noteDal; 
+        private INoteDal _noteDal; 
         public NoteManager(INoteDal noteDal)
         {
-            this.noteDal = noteDal;
+            _noteDal = noteDal;
         }
+
+        public void Delete(int Id)
+        {
+            _noteDal.Delete(Id);
+        }
+
         public Task<List<NoteCard>> GetAll()
         {
-            return noteDal.ListNotes();
+            return _noteDal.ListNotes();
+        }
+
+        public Task<List<NoteCard>> GetByCategoryId(int Id)
+        {
+            return _noteDal.ListByCategoryId(Id);
+        }
+
+        public void Update(NoteCard noteCard)
+        {
+            _noteDal.Update(noteCard);
+        }
+
+        void INoteService.Create(NoteCard noteCard)
+        {
+            _noteDal.Add(noteCard);
         }
     }
 }
