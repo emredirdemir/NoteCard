@@ -1,0 +1,12 @@
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\bin\Debug\net5.0\Note.Entities.deps.json
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\bin\Debug\net5.0\Note.Entities.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\bin\Debug\net5.0\ref\Note.Entities.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\bin\Debug\net5.0\Note.Entities.pdb
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.csproj.AssemblyReference.cache
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.AssemblyInfoInputs.cache
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.AssemblyInfo.cs
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.csproj.CoreCompileInputs.cache
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\ref\Note.Entities.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.pdb

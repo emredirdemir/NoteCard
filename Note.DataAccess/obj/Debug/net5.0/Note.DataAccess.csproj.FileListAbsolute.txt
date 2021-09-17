@@ -1,0 +1,15 @@
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\bin\Debug\net5.0\Note.DataAccess.deps.json
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\bin\Debug\net5.0\Note.DataAccess.dll
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\bin\Debug\net5.0\ref\Note.DataAccess.dll
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\bin\Debug\net5.0\Note.DataAccess.pdb
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\bin\Debug\net5.0\Note.Entities.dll
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\bin\Debug\net5.0\Note.Entities.pdb
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.csproj.AssemblyReference.cache
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.AssemblyInfoInputs.cache
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.AssemblyInfo.cs
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.csproj.CopyComplete
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.dll
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\ref\Note.DataAccess.dll
+C:\Users\emre-\Desktop\NoteCard\Note.DataAccess\obj\Debug\net5.0\Note.DataAccess.pdb

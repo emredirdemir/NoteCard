@@ -1,0 +1,17 @@
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\Note.Business.deps.json
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\Note.Business.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\ref\Note.Business.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\Note.Business.pdb
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\Note.DataAccess.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\Note.Entities.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\Note.DataAccess.pdb
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\bin\Debug\net5.0\Note.Entities.pdb
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.csproj.AssemblyReference.cache
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.AssemblyInfoInputs.cache
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.AssemblyInfo.cs
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.csproj.CoreCompileInputs.cache
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.csproj.CopyComplete
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\ref\Note.Business.dll
+C:\Users\emre-\Desktop\NoteCard\Note.Bussiness\obj\Debug\net5.0\Note.Business.pdb
