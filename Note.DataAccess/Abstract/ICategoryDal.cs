@@ -9,8 +9,9 @@ namespace Note.DataAccess.Abstract
 {
     public interface ICategoryDal
     {
-        void AddCategory(string CategoryName);
-        void DeleteCategory(int Id);
-        List<Category> ListCategory();
+        Task AddCategory(Category category);
+        Task DeleteCategory(int Id);
+        Task<List<Category>> ListCategory();
+        Task Update(Category category);
     }
 }

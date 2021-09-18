@@ -31,7 +31,8 @@ namespace Note.UI
             services.AddSingleton<INoteService, NoteManager>();
             services.AddSingleton<INoteDal, NoteDal>();
             services.AddSingleton<ICategoryDal, CategoryDal>();
-            //services.AddSingleton<ICategoryService, ServiceManager>();
+            services.AddSingleton<ICategoryService, CategoryManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

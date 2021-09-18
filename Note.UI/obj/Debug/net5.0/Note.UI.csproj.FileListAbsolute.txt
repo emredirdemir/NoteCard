@@ -50,3 +50,6 @@ C:\Users\emre-\Desktop\NoteCard\Note.UI\obj\Debug\net5.0\Note.UI.dll
 C:\Users\emre-\Desktop\NoteCard\Note.UI\obj\Debug\net5.0\ref\Note.UI.dll
 C:\Users\emre-\Desktop\NoteCard\Note.UI\obj\Debug\net5.0\Note.UI.pdb
 C:\Users\emre-\Desktop\NoteCard\Note.UI\obj\Debug\net5.0\Note.UI.genruntimeconfig.cache
+C:\Users\emre-\Desktop\NoteCard\Note.UI\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\emre-\Desktop\NoteCard\Note.UI\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\emre-\Desktop\NoteCard\Note.UI\bin\Debug\net5.0\Newtonsoft.Json.dll
