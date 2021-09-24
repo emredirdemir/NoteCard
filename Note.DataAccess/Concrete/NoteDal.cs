@@ -46,7 +46,7 @@ namespace Note.DataAccess.Concrete
                     command.Parameters.Add(new SqlParameter("@NoteHeader", noteCard.NoteHeader));
                     command.Parameters.Add(new SqlParameter("@NoteContent", noteCard.NoteContent));
                     command.Parameters.Add(new SqlParameter("@UserId", 3));
-                    command.Parameters.Add(new SqlParameter("@CategoryId", 12));
+                    command.Parameters.Add(new SqlParameter("@CategoryId", noteCard.CategoryId));
 
                     await command.ExecuteNonQueryAsync();
                 }
@@ -67,8 +67,9 @@ namespace Note.DataAccess.Concrete
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@Id", Id));
+                    await command.ExecuteNonQueryAsync();
                 }
-                await connection.CloseAsync();
+                connection.Close();
             }
         }
 
@@ -83,11 +84,7 @@ namespace Note.DataAccess.Concrete
                 using (SqlCommand command = new SqlCommand("ListNotesByCategoryId", connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("CategoryId", Id));
-                    if (connection.State == System.Data.ConnectionState.Closed)
-                    {
-                        connection.Open();
-                    }
+                    command.Parameters.Add(new SqlParameter("@Id", Id));
 
                     var list = new List<NoteCard>();
 
@@ -120,15 +117,16 @@ namespace Note.DataAccess.Concrete
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    using (var response = await command.ExecuteReaderAsync())
+                    var response = await command.ExecuteReaderAsync();
+
+
+                    while (await response.ReadAsync())
                     {
-                        while (await response.ReadAsync())
-                        {
-                            Notes.Add(MapToValue(response));
-                        }
-                        await connection.CloseAsync();
-                        return Notes;
+                        Notes.Add(MapToValue(response));
                     }
+                    await connection.CloseAsync();
+                    return Notes;
+
                 }
             }
         }
@@ -152,6 +150,38 @@ namespace Note.DataAccess.Concrete
 
                     await command.ExecuteNonQueryAsync();
                     await connection.CloseAsync();
+                }
+            }
+        }
+
+        public async Task<NoteCard> GetNote(int Id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                using (SqlCommand command = new SqlCommand("GetNot", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@Id", Id));
+
+                    var respond = command.ExecuteReader();
+
+                    var note = new NoteCard();
+
+                    while (respond.Read())
+                    {
+
+                        note = MapToValue(respond);
+
+                    }
+                    await connection.CloseAsync();
+
+                    return note;
+
                 }
             }
         }

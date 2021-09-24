@@ -1,0 +1,29 @@
+﻿@model CategoryViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    .specialActive {
+        background-color: orange;
+        color: white;
+    }
+
+    .notActive {
+        background-color: black;
+    }
+</style>
+
+
+<ul class="list-group" style="color: white; position:fixed;">
+    <a asp-action="Index" asp-controller="Note" class="list-group-item @((ViewBag.SelectedCategory>=0)? "notActive":"specialActive")" style="color: inherit; text-decoration: none; ">All Post</a>
+
+    @foreach (var item in Model.categories)
+    {
+
+        <a class="list-group-item @((ViewBag.SelectedCategory==item.Id)? "specialActive":"notActive")" style="color: inherit; text-decoration: none;" class="list-group-item " asp-route-Id="@item.Id" asp-controller="Note" asp-action="GetByCategoryId">@item.CategoryName</a>
+
+    }
+</ul>

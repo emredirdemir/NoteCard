@@ -12,10 +12,12 @@ namespace Note.UI.Controllers
     public class NoteController : Controller
     {
         private INoteService _service;
+        private ICategoryService _categoryService;
 
-        public NoteController(INoteService service)
+        public NoteController(INoteService service, ICategoryService categoryService)
         {
             _service = service;
+            _categoryService = categoryService;
         }
 
         public async Task<IActionResult> Index()
@@ -29,15 +31,22 @@ namespace Note.UI.Controllers
 
         public async Task<IActionResult> GetByCategoryId(int Id)
         {
+            ViewBag.SelectedCategory = Id;
             NoteViewModel model = new NoteViewModel
             {
-                noteCards = await _service.GetByCategoryId(Id)
+                noteCards = await _service.GetByCategoryId(Id),
+
             };
             return View(model);
         }
-        public IActionResult Update()
+        public async Task<IActionResult> Update(int Id)
         {
-            return View();
+            NoteViewModel model = new NoteViewModel
+            {
+                noteCard = await Task.Run(() => _service.GetNote(Id)),
+                categories = await Task.Run(() => _categoryService.GetCategories())
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -47,15 +56,20 @@ namespace Note.UI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            NoteViewModel model = new NoteViewModel()
+            {
+                categories = await Task.Run(() => _categoryService.GetCategories())
+            };
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult Create(NoteCard noteCard)
+        public async Task<IActionResult> Create(NoteCard noteCard)
         {
             _service.Create(noteCard);
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -63,6 +77,17 @@ namespace Note.UI.Controllers
         {
             _service.Delete(Id);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Detail(int Id)
+        {
+
+            NoteViewModel noteCard = new NoteViewModel
+            {
+                noteCard = await Task.Run(() => _service.GetNote(Id))
+            };
+
+            return View(noteCard);
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Note.Business.Abstract;
 using Note.Business.Concrete;
@@ -10,6 +11,7 @@ using Note.DataAccess.Abstract;
 using Note.DataAccess.Concrete;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,11 +29,12 @@ namespace Note.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddSingleton<INoteService, NoteManager>();
             services.AddSingleton<INoteDal, NoteDal>();
             services.AddSingleton<ICategoryDal, CategoryDal>();
             services.AddSingleton<ICategoryService, CategoryManager>();
+            services.AddDirectoryBrowser();
 
         }
 
@@ -49,8 +52,8 @@ namespace Note.UI
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -59,7 +62,7 @@ namespace Note.UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Note}/{action=Index}/{id?}");
             });
         }
     }

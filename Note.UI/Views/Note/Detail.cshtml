@@ -1,0 +1,18 @@
+﻿@model NoteViewModel
+@{
+    ViewData["Title"] = "Read";
+}
+<style>
+    .center {
+        margin: auto;
+        width: 50%;
+    }
+</style>
+<div class="center">
+    <div class="card border-secondary mb-3">
+        <div class="card-header">@Model.noteCard.NoteHeader</div>
+        <div class="card-body text-secondary">
+            <p class="card-text">@Html.Raw(@Model.noteCard.NoteContent)</p>
+        </div>
+    </div>
+</div>

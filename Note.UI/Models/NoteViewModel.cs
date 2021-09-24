@@ -9,5 +9,7 @@ namespace Note.UI.Models
     public class NoteViewModel
     {
         public List<NoteCard> noteCards { get; set; }
+        public List<Category> categories { get; set; }
+        public NoteCard noteCard { get; set; }
     }
 }

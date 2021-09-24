@@ -10,6 +10,7 @@ namespace Note.Business.Abstract
     public interface INoteService
     {
         Task<List<NoteCard>> GetAll();
+        Task<NoteCard> GetNote(int Id);
         Task<List<NoteCard>> GetByCategoryId(int Id);
         void Delete(int Id);
         void Update(NoteCard noteCard);

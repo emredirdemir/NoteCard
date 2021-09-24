@@ -22,15 +22,19 @@ namespace Note.UI.Controllers
         {
             CategoryViewModel model = new CategoryViewModel
             {
-
                 categories = await Task.Run(() => _service.GetCategories())
             };
             return View(model);
         }
 
-        public IActionResult AddCategory()
-        {
-            return View();
+        public async Task<IActionResult> ManageCategory()
+        { 
+
+            CategoryViewModel model = new CategoryViewModel
+            {
+                categories = await Task.Run(() => _service.GetCategories())
+        };
+            return View(model);
         }
 
         [HttpPost]

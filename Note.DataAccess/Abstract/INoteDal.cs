@@ -10,6 +10,7 @@ namespace Note.DataAccess.Abstract
     public interface INoteDal
     {
         Task<List<NoteCard>> ListNotes();
+        Task<NoteCard> GetNote(int Id);
         Task<List<NoteCard>> ListByCategoryId(int Id);
         Task Delete(int Id);
         Task Add(NoteCard noteCard);

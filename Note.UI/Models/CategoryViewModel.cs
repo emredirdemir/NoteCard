@@ -9,5 +9,7 @@ namespace Note.UI.Models
     public class CategoryViewModel
     {
         public List<Category> categories { get; set; }
+        public Category category { get; set; }
+        public int SelectedCategory { get; set; }
     }
 }

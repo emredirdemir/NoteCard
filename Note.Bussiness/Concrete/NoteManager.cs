@@ -22,6 +22,11 @@ namespace Note.Business.Concrete
             _noteDal.Delete(Id);
         }
 
+        public Task<NoteCard> GetNote(int Id)
+        {
+           return _noteDal.GetNote(Id);
+        }
+
         public Task<List<NoteCard>> GetAll()
         {
             return _noteDal.ListNotes();

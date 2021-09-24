@@ -1,0 +1,26 @@
+﻿@model NoteViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_IndexLayout";
+}
+<form>
+    <div class="row">
+
+        @foreach (var item in Model.noteCards)
+        {
+            <div class="col-md-4 mb-5">
+
+                <div class="card border-secondary" style=" height:10rem; max-width: 25rem;">
+                    <div class="card-header" style="background-color: #292b2c; color: #f0ad4e; text-align: center;">@item.NoteHeader</div>
+
+                    <img class="card-img-top" src="/write.png" />
+
+
+                    <button type="button" class="btn btn-warning" style="border-radius: 0px;"> + More</button>
+                </div>
+            </div>
+        }
+
+    </div>
+</form>
+

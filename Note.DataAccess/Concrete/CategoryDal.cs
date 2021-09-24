@@ -50,9 +50,9 @@ namespace Note.DataAccess.Concrete
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@Id", Id));
-                    await command.ExecuteReaderAsync();
+                    command.ExecuteReader();
                 }
-                await connection.CloseAsync();
+                connection.Close();
             }
         }
 
@@ -67,10 +67,10 @@ namespace Note.DataAccess.Concrete
 
                 var categoryList = new List<Category>();
 
-                using (SqlCommand command = new SqlCommand("DeleteCategory", connection))
+                using (SqlCommand command = new SqlCommand("CategoryList", connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    using (var response = await command.ExecuteReaderAsync())
+                    using (var response = command.ExecuteReader())
                     {
                         while (response.Read())
                         {
