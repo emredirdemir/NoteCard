@@ -27,14 +27,14 @@ namespace Note.Business.Concrete
            return _noteDal.GetNote(Id);
         }
 
-        public Task<List<NoteCard>> GetAll()
+        public Task<List<NoteCard>> GetAll(int itemCount, int page)
         {
-            return _noteDal.ListNotes();
+            return _noteDal.ListNotes(itemCount, page);
         }
 
-        public Task<List<NoteCard>> GetByCategoryId(int Id)
+        public Task<List<NoteCard>> GetByCategoryId(int Id, int itemCount, int page)
         {
-            return _noteDal.ListByCategoryId(Id);
+            return _noteDal.ListByCategoryId(Id, itemCount, page);
         }
 
         public void Update(NoteCard noteCard)
@@ -45,6 +45,16 @@ namespace Note.Business.Concrete
         void INoteService.Create(NoteCard noteCard)
         {
             _noteDal.Add(noteCard);
+        }
+
+        public int CountOfNote()
+        {
+            return _noteDal.CountOfNote();
+        }
+
+        public int GetByCountWithCategory(int Id)
+        {
+            return _noteDal.GetByCountWithCategory(Id);
         }
     }
 }

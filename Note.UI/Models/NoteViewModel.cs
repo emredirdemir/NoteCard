@@ -1,4 +1,6 @@
-﻿using Note.Entities.Concrete;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Note.Entities;
+using Note.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +13,6 @@ namespace Note.UI.Models
         public List<NoteCard> noteCards { get; set; }
         public List<Category> categories { get; set; }
         public NoteCard noteCard { get; set; }
+        public MyPage MyPage { get; set; }
     }
 }

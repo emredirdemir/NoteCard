@@ -73,7 +73,34 @@ namespace Note.DataAccess.Concrete
             }
         }
 
-        public async Task<List<NoteCard>> ListByCategoryId(int Id)
+        public async Task<List<NoteCard>> ListNotes(int itemCount, int page)
+        {
+            var Notes = new List<NoteCard>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                using (SqlCommand command = new SqlCommand("ListNotes", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    var response = await command.ExecuteReaderAsync();
+
+
+                    while (await response.ReadAsync())
+                    {
+                        Notes.Add(MapToValue(response));
+                    }
+                    await connection.CloseAsync();
+                    return Notes.Skip((page - 1) * itemCount).Take(itemCount).ToList();
+                }
+            }
+        }
+
+        public async Task<List<NoteCard>> ListByCategoryId(int Id, int itemCount, int page)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -96,38 +123,10 @@ namespace Note.DataAccess.Concrete
                         }
                         await connection.CloseAsync();
 
-                        return list;
+                        return list.Skip((page - 1) * itemCount).Take(itemCount).ToList();
                     }
                 }
 
-            }
-        }
-
-        public async Task<List<NoteCard>> ListNotes()
-        {
-            var Notes = new List<NoteCard>();
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                if (connection.State == System.Data.ConnectionState.Closed)
-                {
-                    connection.Open();
-                }
-                using (SqlCommand command = new SqlCommand("ListNotes", connection))
-                {
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    var response = await command.ExecuteReaderAsync();
-
-
-                    while (await response.ReadAsync())
-                    {
-                        Notes.Add(MapToValue(response));
-                    }
-                    await connection.CloseAsync();
-                    return Notes;
-
-                }
             }
         }
 
@@ -182,6 +181,57 @@ namespace Note.DataAccess.Concrete
 
                     return note;
 
+                }
+            }
+        }
+
+        public int CountOfNote()
+        {
+            int count = 0;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                using (SqlCommand command = new SqlCommand("CountOfNote", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        count = Convert.ToInt32(reader["RowCount"]);
+                    }
+
+                    connection.Close();
+                    return count;
+                }
+            }
+        }
+
+        public int GetByCountWithCategory(int Id)
+        {
+            int count = 0;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                using (SqlCommand command = new SqlCommand("CountOfNoteWithCategory", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@Id", Id));
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        count = Convert.ToInt32(reader["RowCount"]);
+                    }
+
+                    connection.Close();
+                    return count;
                 }
             }
         }

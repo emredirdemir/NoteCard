@@ -3,24 +3,84 @@
     ViewData["Title"] = "Index";
     Layout = "_IndexLayout";
 }
+
+<style>
+    .pagination {
+        display: inline-block;
+    }
+
+        .pagination a {
+            float: left;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            color: inherit;
+            text-decoration: none;
+            background-color: black;
+            color: orange;
+        }
+
+            .pagination a:first-child {
+                border-top-left-radius: 5px;
+            }
+
+            .pagination a:last-child {
+                border-top-right-radius: 5px;
+            }
+
+            .pagination a.cActive {
+                background-color: orange;
+                color: white;
+            }
+
+    .positionPagination {
+        position: relative;
+        margin: auto;
+        margin-top: 8%;
+        width: 30%;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <form>
     <div class="row">
 
         @foreach (var item in Model.noteCards)
         {
-            <div class="col-md-4 mb-5">
+            <div class="col-md-4 mb-5 mt-5">
 
-                <div class="card border-secondary" style=" height:10rem; max-width: 25rem;">
-                    <div class="card-header" style="background-color: #292b2c; color: #f0ad4e; text-align: center;">@item.NoteHeader</div>
+                <div class="card border-secondary" style="height: 13rem; max-width: 30rem; ">
+                    <div class="card-header" style="background-color: #292b2c; color: #f0ad4e; text-align: center;">
+                        @item.NoteHeader <button asp-action="delete" asp-route-Id="@item.Id" type="submit" style="float:right;" class="btn btn-danger btn-sm"></button>
+                        <button asp-action="update" asp-route-Id="@item.Id" type="submit" style="float:right; margin-right:3px;" class="btn btn-success btn-sm"></button>
+                    </div>
 
-                    <img class="card-img-top" src="/write.png" />
+                    <img class="card-img-top" src="/ngif.gif" />
 
 
-                    <button type="button" class="btn btn-warning" style="border-radius: 0px;"> + More</button>
+                    <button asp-controller="Note" asp-action="Detail" asp-route-Id="@item.Id" type="submit" class="btn btn-warning" style="color:white; border-radius: 0px;"><i class="far fa-clipboard"></i> <strong>Read</strong></button>
                 </div>
             </div>
         }
 
     </div>
+
 </form>
 
+<div class="positionPagination">
+
+    <div class="pagination">
+        @if (Model.MyPage.CurrentPage != 1)
+        {
+            <a asp-route-page="@(Model.MyPage.CurrentPage - 1)">&laquo;</a>
+        }
+        @for (int i = 0; i < Model.MyPage.PageCount; i++)
+        {
+            <a asp-route-page="@(i+1)" class="@( Model.MyPage.CurrentPage == (i + 1) ? "cActive": "")">@(i+1)</a>
+        }
+        @if (Model.MyPage.PageCount != Model.MyPage.CurrentPage)
+        {
+            <a asp-route-page="@(Model.MyPage.CurrentPage + 1)">&raquo;</a>
+        }
+    </div>
+
+</div>

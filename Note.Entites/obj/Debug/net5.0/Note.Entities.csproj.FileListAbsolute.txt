@@ -9,4 +9,3 @@ C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.cspr
 C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.dll
 C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\ref\Note.Entities.dll
 C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.pdb
-C:\Users\emre-\Desktop\NoteCard\Note.Entites\obj\Debug\net5.0\Note.Entities.csproj.AssemblyReference.cache

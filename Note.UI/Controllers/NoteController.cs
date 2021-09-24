@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Note.Business.Abstract;
+using Note.Entities;
 using Note.Entities.Concrete;
 using Note.UI.Models;
 using System;
@@ -20,22 +21,39 @@ namespace Note.UI.Controllers
             _categoryService = categoryService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
+            const int itemCount = 6;
+            decimal totalItem = _service.CountOfNote();
+            int PageCount = (int)Math.Ceiling(totalItem / itemCount);
             NoteViewModel model = new NoteViewModel
             {
-                noteCards = await Task.Run(() => _service.GetAll())
+                noteCards = await Task.Run(() => _service.GetAll(itemCount, page)),
+                MyPage = new MyPage()
+                {
+                    CurrentPage = page,
+                    PageCount = PageCount
+                }
             };
             return View(model);
         }
 
-        public async Task<IActionResult> GetByCategoryId(int Id)
+        public async Task<IActionResult> GetByCategoryId(int Id, int page=1)
         {
             ViewBag.SelectedCategory = Id;
+            const int itemCount = 6;
+
+            decimal totalItem = _service.GetByCountWithCategory(Id);
+
+            int PageCount = (int)Math.Ceiling(totalItem / itemCount);
             NoteViewModel model = new NoteViewModel
             {
-                noteCards = await _service.GetByCategoryId(Id),
-
+                noteCards = await Task.Run(() => _service.GetByCategoryId(Id, itemCount, page)),
+                MyPage = new MyPage()
+                {
+                    CurrentPage = page,
+                    PageCount = PageCount
+                }
             };
             return View(model);
         }
