@@ -1,1 +1,1 @@
-# NoteCard Yapim Asamasinda
+# NoteCard Yapım Aşamasında
