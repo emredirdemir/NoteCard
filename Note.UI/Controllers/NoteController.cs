@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Note.Business.Abstract;
 using Note.Entities;
 using Note.Entities.Concrete;
@@ -97,6 +98,7 @@ namespace Note.UI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         public async Task<IActionResult> Detail(int Id)
         {
 

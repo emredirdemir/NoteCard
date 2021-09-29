@@ -50,13 +50,13 @@
         {
             <div class="col-md-4 mb-5 mt-5">
 
-                <div class="card border-secondary" style="height: 13rem; max-width: 30rem; ">
+                <div class="card border-secondary" style="max-width: 30rem; ">
                     <div class="card-header" style="background-color: #292b2c; color: #f0ad4e; text-align: center;">
                         @item.NoteHeader <button asp-action="delete" asp-route-Id="@item.Id" type="submit" style="float:right;" class="btn btn-danger btn-sm"></button>
                         <button asp-action="update" asp-route-Id="@item.Id" type="submit" style="float:right; margin-right:3px;" class="btn btn-success btn-sm"></button>
                     </div>
 
-                    <img class="card-img-top" src="/ngif.gif" />
+                    
 
 
                     <button asp-controller="Note" asp-action="Detail" asp-route-Id="@item.Id" type="submit" class="btn btn-warning" style="color:white; border-radius: 0px;"><i class="far fa-clipboard"></i> <strong>Read</strong></button>
